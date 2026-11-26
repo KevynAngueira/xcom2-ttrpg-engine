@@ -66,15 +66,23 @@ before the next is built on top of it.
 Set in `XComInput.ini` (user config, not tracked in this repo — see
 `.gitignore`). Requires the `-allowconsole` launch option.
 
+Bound in `[XComGame.XComTacticalInput]`, not `[Engine.PlayerInput]` —
+XCOM 2 uses a separate input class for the tactical mission layer that
+claims keys independently of the menu/strategy layer, and it already
+claims bare `F5`-`F8` for its own internal actions. Keybinds meant to
+fire mid-mission have to go in that section specifically, or they're
+silently never seen. `Ctrl+Alt+<letter>` is used instead of bare F-keys
+since nothing else in that section claims those combos.
+
 | Key | Console command | Effect |
 |---|---|---|
-| `F5` | `SkipAI` | toggle: enemy AI stops/resumes taking turns |
-| `F6` | `X2allowselectall 1` | take control of every unit, including enemies |
-| `Shift+F6` | `X2allowselectall 0` | release that control |
-| `F7` | `DropUnit AdvTrooperM1 1` | spawn an ADVENT trooper on the enemy team at the cursor |
-| `Shift+F7` | `KillClosestUnitToCursor` | remove a unit near the cursor, no XP/loot |
-| `F8` | `KillAllAIs` | clear all enemies |
-| `Ctrl+Shift+F8` | `EndBattle` | force-end the mission as a loss |
+| `Ctrl+Alt+A` | `SkipAI` | toggle: enemy AI stops/resumes taking turns |
+| `Ctrl+Alt+S` | `X2allowselectall 1` | take control of every unit, including enemies |
+| `Ctrl+Alt+R` | `X2allowselectall 0` | release that control |
+| `Ctrl+Alt+D` | `DropUnit AdvTrooperM1 1` | spawn an ADVENT trooper on the enemy team at the cursor |
+| `Ctrl+Alt+X` | `KillClosestUnitToCursor` | remove a unit near the cursor, no XP/loot |
+| `Ctrl+Alt+K` | `KillAllAIs` | clear all enemies |
+| `Ctrl+Alt+Shift+E` | `EndBattle` | force-end the mission as a loss (extra modifier guards the one irreversible command here) |
 
 ## Repo structure
 
@@ -105,6 +113,10 @@ here (e.g. the keybind table above) but live in the user's own
 - **[WOTC] Community Highlander** (X2CommunityCore) — the shared
   framework this project's future custom mod will build on.
   https://steamcommunity.com/sharedfiles/filedetails/?id=1134256495
+- **[WOTC] Alien Hunters Community Highlander** (X2CommunityCore) —
+  required companion plugin when the base Highlander and the Alien
+  Hunters DLC are both present.
+  https://steamcommunity.com/sharedfiles/filedetails/?id=2534737016
 - **[WOTC] XpanD's Console Commands** (XpanD) — console commands used
   for Tier 0 soldier/mission control.
   https://steamcommunity.com/sharedfiles/filedetails/?id=3113132590
