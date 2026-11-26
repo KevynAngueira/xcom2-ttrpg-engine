@@ -1,0 +1,36 @@
+# --- Game install / user data (never commit XCOM 2 assets or binaries) ---
+# This repo tracks only original tooling, mod source, config, and docs for
+# the GM-toolkit project. The actual game, Workshop mods, saves, and
+# character pools live outside this repo under:
+#   C:\Program Files (x86)\Steam\steamapps\common\XCOM 2\
+#   C:\Users\kevyn\OneDrive\Documentos\my games\XCOM2\
+# If any local test copies of config/save files are ever staged into this
+# repo for reference, ignore the bulky/binary ones explicitly below.
+*.bin
+*.sav
+Saves/
+SaveData/
+CharacterPool/
+
+# --- SDK / build output (once the UnrealScript mod project is added) ---
+Build/
+*.u
+*.upk
+*.rom
+
+# --- OS / editor noise ---
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+.vscode/
+.idea/
+
+# --- Secrets, just in case ---
+*.env
+*.pem
+*token*
+
+# --- Local AI-assistant project notes/settings, not for the public repo ---
+CLAUDE.md
+.claude/
